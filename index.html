@@ -16,19 +16,19 @@
 		</div>
 		<div id="container"></div>
 
-		<script src="js/libs/ammo.js"></script>
+		<script src="./src/js/libs/ammo.js"></script>
 
 		<script type="module">
 
-			import * as THREE from '../build/three.module.js';
+			import * as THREE from './build/three.module.js';
 
-			import Stats from './jsm/libs/stats.module.js';
+			import Stats from './src/jsm/libs/stats.module.js';
 
-			import { OrbitControls } from './jsm/controls/OrbitControls.js';
-			import { BufferGeometryUtils } from './jsm/utils/BufferGeometryUtils.js';
+			import { OrbitControls } from './src/jsm/controls/OrbitControls.js';
+			import { BufferGeometryUtils } from './src/jsm/utils/BufferGeometryUtils.js';
 
-			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
-			import { GUI } from './jsm/libs/dat.gui.module.js';
+			import { GLTFLoader } from './src/jsm/loaders/GLTFLoader.js';
+			import { GUI } from './src/jsm/libs/dat.gui.module.js';
 			
 
 			// Graphics variables
@@ -94,7 +94,7 @@
 				// scene.add( grid );
 
 				var loader = new GLTFLoader();
-				loader.load( './pokemon/scene.gltf', function ( gltf ) {
+				loader.load( './src/pokemon/scene.gltf', function ( gltf ) {
 
 					model = gltf.scene;
 					scene.add( model );
@@ -213,7 +213,7 @@
 				var ground = createParalellepiped( 40, 1, 40, 0, pos, quat, new THREE.MeshPhongMaterial( { color: 0xFFFFFF } ) );
 				ground.castShadow = true;
 				ground.receiveShadow = true;
-				textureLoader.load( "textures/kandao3_depthmap.jpg", function ( texture ) {
+				textureLoader.load( "src/textures/kandao3_depthmap.jpg", function ( texture ) {
 
 					texture.wrapS = THREE.RepeatWrapping;
 					texture.wrapT = THREE.RepeatWrapping;
@@ -315,7 +315,7 @@
 				volume.frustumCulled = false;
 				scene.add( volume );
 
-				textureLoader.load( "textures/colors.png", function ( texture ) {
+				textureLoader.load( "src/textures/colors.png", function ( texture ) {
 
 					volume.material.map = texture;
 					volume.material.needsUpdate = true;
